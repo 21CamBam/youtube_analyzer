@@ -19,3 +19,6 @@ def cstat(attr, value):
     count = 0
     count = db.videos.find({attr: value})
     print "Number of videos where {0} is {1}: {2}".format(attr, value, count)
+    
+def run(arguments):
+    pass

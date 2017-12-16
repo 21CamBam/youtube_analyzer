@@ -22,3 +22,6 @@ def rangeq(x, y, target_attr, descriptive_attr=None):
         # result = range query over pre_res
         for r in result.find():
             print r["video_id"]
+    
+def run(arguments):
+    pass

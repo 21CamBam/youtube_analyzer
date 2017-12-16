@@ -32,3 +32,6 @@ def dd():
     #result.find_one(sort=[("value", 1)])["value"]
     print "Maximum Degree:"
     #result.find_one(sort=[("value", -1)])["value"]
+    
+def run(arguments):
+    pass

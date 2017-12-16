@@ -1,7 +1,6 @@
 import os
 import pymongo
 import json
-import timeit
 
 from bson.code import Code
 from pymongo import MongoClient
@@ -16,7 +15,7 @@ videos = db.videos
 args = ["k", "sort_parameter", "attr"]
 
 def usage():
-    print "topk k=<integer> [Optional: sort_paramater=<string>] [Optional: attr=<string>]\n"
+    print "Usage: topk k=<integer> [Optional: sort_paramater=<string>] [Optional: attr=<string>]\n"
     print "Arguments:"
     print "[Required]"
     print "k - number of results to print\n"
@@ -58,9 +57,9 @@ def run(arguments):
                 ValueError("'{0}' not an accepted argument.".format(arg))
             if arg == 'k':
                 k = int(val)
-            else if arg == 'sort_parameter':
+            elif arg == 'sort_parameter':
                 sort = val
-            else if arg == 'attr':
+            elif arg == 'attr':
                 attr = val
             else:
                 ValueError("'{0}' not an accepted argument.".format(arg))
@@ -70,8 +69,9 @@ def run(arguments):
     if k < 0:
         usage()
         return
-    if attr == 'video_id' || sort == None:
+    if attr == 'video_id' or sort == None:
         sort = 'uploader'
     if attr == None:
         attr = 'video_id'
+    print "Top {0} {1}'s with the most {2}s".format(k,sort,attr)
     topk(k, sort, attr)
