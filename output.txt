@@ -1,0 +1,219 @@
+youtube_analyzer shell v1.0
+Welcome to Cammi's YouTube Dataset Analysis Tool!
+> topk k=15 sort_parameter=video_id attr=num_comments
+Top 15 video_id's with the most num_commentss
+1. kHmvkRoEowc, num_comments = 259683
+2. cQ25-glGRzI, num_comments = 186858
+3. qUWubraZ3Dg, num_comments = 133673
+4. dMH0bHeiRNg, num_comments = 131356
+5. EwTZ2xpQwpA, num_comments = 129200
+6. x9QNKB34cJo, num_comments = 123221
+7. 89oS4SN4mNg, num_comments = 108937
+8. JQXh20OuhIc, num_comments = 106635
+9. aIiRFSCgGu4, num_comments = 92471
+10. m3ceCMpPJgc, num_comments = 84352
+11. Tx1XIm6q4r4, num_comments = 83980
+12. WqYPvbUHFd0, num_comments = 78611
+13. h863nXDqCM0, num_comments = 74555
+14. 8JUvbJekM88, num_comments = 73747
+15. lj3iNxZ8Dww, num_comments = 71447
+--- Runtime: 0.320905923843 seconds ---
+> topk k=10 sort_parameter=uploader attr=video_id
+Top 10 uploader's with the most video_ids
+1. expertvillage, Videos uploaded = 6307.0
+2. universalmusicgroup, Videos uploaded = 3141.0
+3. CBS, Videos uploaded = 2665.0
+4. TNAwrestling, Videos uploaded = 1543.0
+5. AssociatedPress, Videos uploaded = 1258.0
+6. Duowei, Videos uploaded = 1058.0
+7. NBA, Videos uploaded = 942.0
+8. sonybmg, Videos uploaded = 939.0
+9. TotalVidInc, Videos uploaded = 855.0
+10. TheYoungTurks, Videos uploaded = 843.0
+--- Runtime: 0.0268549919128 seconds ---
+> topk k=15 attr=num_views
+Top 15 uploader's with the most num_viewss
+1. judsonlaipply, num_views = 79897120
+2. RCARecords, num_views = 77674728
+3. kaejane, num_views = 65341925
+4. IMVUinc, num_views = 65078772
+5. IMVUinc, num_views = 65078772
+6. internmarket, num_views = 60349673
+7. donotasyoudo, num_views = 57790943
+8. judsonlaipply, num_views = 46014060
+9. 1988basti, num_views = 45984219
+10. universalmusicgroup, num_views = 44614530
+11. aliciakeys, num_views = 43583367
+12. BlackOleg, num_views = 42525795
+13. judsonlaipply, num_views = 42513417
+14. chai0322, num_views = 41564032
+15. deuxjg, num_views = 38937813
+--- Runtime: 0.0235362052917 seconds ---
+> rangeq x=100 y=1000 target_attr=video_length
+Entries bounded by [100,1000]
+KDQm1_e638w, video_length = 999
+84oMYrsFFhE, video_length = 999
+xIkkRoHUWiA, video_length = 999
+fL6leg01URc, video_length = 999
+af5JH3Cp4kM, video_length = 999
+nXvpGodE8t4, video_length = 999
+ZTbNyV9olfE, video_length = 999
+s2oP8Fye_H4, video_length = 999
+p5yfaL1GhjQ, video_length = 999
+oTxOGeA_xL4, video_length = 999
+HspQ-8UTZkE, video_length = 999
+2zIBd_RFqYA, video_length = 999
+z_d3Cab6s54, video_length = 999
+Hppkn_RknD4, video_length = 999
+NZN7dM69290, video_length = 999
+lFeQDdbABmY, video_length = 999
+MIF0aJ5lLI0, video_length = 999
+sIAwAC1l_xU, video_length = 999
+GSY4wgMN2gA, video_length = 999
+Show 20 more? [y/n]n                                          
+--- Runtime: 9.92028713226 seconds ---
+> rangeq x=2000 y=10000 target_attr=num_views
+Entries bounded by [2000,10000]
+Yay7WaFRr68, num_views = 9999
+6GGnEQ6IjZg, num_views = 9999
+H0UueoomHoM, num_views = 9999
+OC7MFAv2pmE, num_views = 9999
+9oInCHqk-MU, num_views = 9999
+H0UueoomHoM, num_views = 9999
+OC7MFAv2pmE, num_views = 9999
+9oInCHqk-MU, num_views = 9999
+biTmtjIJoPg, num_views = 9999
+1PUIUhEspk0, num_views = 9999
+h-5_LQYx6v0, num_views = 9999
+07yu_OYwPD4, num_views = 9999
+wBZT_JMmtVg, num_views = 9999
+LiROD5uGLkY, num_views = 9999
+d1u5IxXbHoM, num_views = 9999
+9zFSUBfPYNA, num_views = 9999
+NFNc1LcUEec, num_views = 9999
+Q4sGH4F3TGg, num_views = 9999
+QmGHZ9ne48A, num_views = 9999
+Show 20 more? [y/n]y
+ty4GJz8t_fw, num_views = 9999
+ftGCQcbaM5c, num_views = 9999
+E-KNcOOE0NU, num_views = 9999
+4IPcreXlEAU, num_views = 9999
+p-HQotdxg6M, num_views = 9999
+8MvwPziag48, num_views = 9999
+dzLt_FyGnho, num_views = 9999
+O97kS25uNzA, num_views = 9999
+5aaq6YR5wSA, num_views = 9999
+ZKpAMKT5Ih8, num_views = 9999
+xdfbxZk-hU8, num_views = 9999
+a8Mg1Zfv8pY, num_views = 9999
+iNDWysGJ1rg, num_views = 9999
+ug0xJduW1zQ, num_views = 9999
+Ol36fQxz3IU, num_views = 9999
+e-Qf5Bi8XA8, num_views = 9999
+gVNHskp44Do, num_views = 9999
+WKGkJgRn2k4, num_views = 9999
+0RwchCMO0wA, num_views = 9999
+EDQKLNplK-g, num_views = 9999
+Show 20 more? [y/n]n
+--- Runtime: 5.19991493225 seconds ---
+> rangeq x=2000 y=10000 target_attr=num_views descriptive_attr=category,Entertainment
+Entries bounded by [2000,10000]
+OC7MFAv2pmE, num_views = 9999, category = Entertainment
+OC7MFAv2pmE, num_views = 9999, category = Entertainment
+h-5_LQYx6v0, num_views = 9999, category = Entertainment
+07yu_OYwPD4, num_views = 9999, category = Entertainment
+wBZT_JMmtVg, num_views = 9999, category = Entertainment
+d1u5IxXbHoM, num_views = 9999, category = Entertainment
+9zFSUBfPYNA, num_views = 9999, category = Entertainment
+Q4sGH4F3TGg, num_views = 9999, category = Entertainment
+QmGHZ9ne48A, num_views = 9999, category = Entertainment
+a8Mg1Zfv8pY, num_views = 9999, category = Entertainment
+iNDWysGJ1rg, num_views = 9999, category = Entertainment
+ug0xJduW1zQ, num_views = 9999, category = Entertainment
+Ol36fQxz3IU, num_views = 9999, category = Entertainment
+jNsRclXQXo8, num_views = 9999, category = Entertainment
+y7v0HyuIIUw, num_views = 9999, category = Entertainment
+VULpoViYUcA, num_views = 9999, category = Entertainment
+T9ahSe0A-70, num_views = 9999, category = Entertainment
+IXjWCQUiDCE, num_views = 9999, category = Entertainment
+TDh0PZCO2CU, num_views = 9999, category = Entertainment
+Show 20 more? [y/n]n
+--- Runtime: 2.8561398983 seconds ---
+> cstat category=Entertainment
+Number of videos that satisfy {'category': 'Entertainment'}: 1431904
+--- Runtime: 2.90307998657 seconds ---
+> cstat num_views=250 video_age=1200
+Number of videos that satisfy {'num_views': 250, 'video_age': 1200}: 8
+--- Runtime: 0.0334939956665 seconds ---
+> dd
+In-Degree Distribution:
+Degree = 1.0, Fraction = 0.662560836643
+Degree = 2.0, Fraction = 0.148947121262
+Degree = 3.0, Fraction = 0.0633570356456
+Degree = 4.0, Fraction = 0.0350920364087
+Degree = 5.0, Fraction = 0.0223624600863
+Degree = 6.0, Fraction = 0.0151004611379
+Degree = 7.0, Fraction = 0.0108822142463
+Degree = 8.0, Fraction = 0.00826100582378
+Degree = 9.0, Fraction = 0.00629273025605
+Degree = 10.0, Fraction = 0.00489242130574
+
+Out-Degree Distribution:
+Degree = 20.0, Fraction = 0.92906570223
+Degree = 14.0, Fraction = 0.041356238698
+Degree = 5.0, Fraction = 0.00704641350211
+Degree = 19.0, Fraction = 0.00435804701627
+Degree = 8.0, Fraction = 0.00379445449066
+Degree = 40.0, Fraction = 0.00345388788427
+Degree = 18.0, Fraction = 0.0011091018686
+Degree = 13.0, Fraction = 0.00105485232068
+Degree = 17.0, Fraction = 0.000765521398433
+Degree = 1.0, Fraction = 0.000741410488246
+
+Average Degree:
+2.12206511093
+
+Minimum Degree:
+1.0
+
+Maximum Degree:
+60.0
+--- Runtime: 8.31002998352 seconds ---
+> pgr
+Rank  Video ID     Uploader         Category                 Age        Length     Views      Rate       Ratings   
+1     cQ25-glGRzI  RCARecords       Music                    742        227        29431      4.19       93        
+2     SVA5s-oo6PM  mahmoudsayed     News & Politics          874        324        120732     4.57       109       
+3     KMP8OSWGcss  applemctom       Gadgets & Games          799        146        1761       4.4        20        
+4     -6kNZe3Fpyc  LATOMMM          People & Blogs           890        314        271086     4.57       126       
+5     DRk0Njz9UjU  alsabaani        People & Blogs           817        396        341226     4.22       148       
+6     F5VvvVxuKko  hollywoodrecords Music                    762        219        18723019   4.67       33544     
+7     eBn73Ehvm_0  alkafage1        People & Blogs           883        129        277260     4.69       140       
+8     lkRUawKehLA  applemctom       Entertainment            1036       281        36885      4.19       127       
+9     UheCchftswc  scooby1961       Howto & Style            875        403        684313     4.74       923       
+10    nQAh7m4xsMo  scooby1961       Sports                   610        90         1514301    4.69       1219      
+11    ktUSIJEiOug  aliciakeys       Music                    953        251        43583367   4.85       103074    
+12    rZBA0SKmQy8  TownIdiot25      Comedy                   848        130        11007201   4.83       75004     
+13    89oS4SN4mNg  BritneyTV        Music                    1032       189        31484375   4.69       72620     
+14    Q5im0Ssyyus  gswanson17       Comedy                   439        225        21170471   4.71       97172     
+15    QjA5faZF1A8  guitar90         Music                    308        320        15256922   4.84       120506    
+16    hSVNbxjdvv8  DominicFear      Comedy                   713        164        1112683    4.84       7596      
+17    sF84pIhP5UM  leonalewis       Music                    974        275        36537340   4.83       72929     
+18    FiNUkDnDMFA  kennytenny       Comedy                   522        223        9228260    4.73       15974     
+19    VCfDLP1iJDQ  MasterBigode     Nonprofits & Activism    1046       54         97583      4.55       97        
+20    0bA8VepuTrc  MichaelFerencsik Sports                   750        147        198994     4.65       162       
+--- Runtime: 46.9232559204 seconds ---
+> help
+help    dd    sp    rangeq    topk    pgr    cstat
+--- Runtime: 6.8187713623e-05 seconds ---
+> help verbose
+dd     - degree distribution (no arguments)
+cstat  - categorical statistics (one required argument)
+topk   - top k queries (one required and two optional arguments)
+rangeq - range queries (three required and one optional arguments)
+sp     - subgraph pattern recognition (one required argument)
+pgr    - pagerank influence analysis (no arguments)
+help   - list commands (no arguments)
+
+--- Runtime: 5.60283660889e-05 seconds ---
+> 
+

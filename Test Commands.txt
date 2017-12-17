@@ -1,0 +1,12 @@
+topk
+    topk k=15 sort_parameter=video_id attr=num_comments
+    topk k=10 sort_parameter=uploader attr=video_id
+    topk k=15 attr=num_views
+rangeq
+    rangeq x=100 y=1000 target_attr=video_length
+    rangeq x=2000 y=10000 target_attr=num_views descriptive_attr=category,Entertainment
+dd
+cstat
+    cstat category=Entertainment
+    cstat num_views=250 video_age=1200
+pgr
