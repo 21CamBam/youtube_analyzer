@@ -14,6 +14,27 @@ videos = db.videos
 
 args = ["k", "sort_parameter", "attr"]
 
+attrs2 = {
+    "video_age": "function () {\
+                    emit(this.uploader, this.age);\
+              }",
+    "video_length": "function () {\
+                    emit(this.uploader, this.length);\
+              }",
+    "num_views": "function () {\
+                    emit(this.uploader, this.views);\
+              }",
+    "rate": "function () {\
+                    emit(this.uploader, this.rate);\
+              }",
+    "num_ratings": "function () {\
+                    emit(this.uploader, this.ratings);\
+              }",
+    "num_comments": "function () {\
+                    emit(this.uploader, this.comments);\
+              }"
+}
+
 def usage():
     print "Usage: topk k=<integer> [Optional: sort_paramater=<string>] [Optional: attr=<string>]\n"
     print "Arguments:"
@@ -21,30 +42,23 @@ def usage():
     print "k - number of results to print\n"
     print "[Optional]"
     print "sort_parameter - the attribute to be printed"
-    print "attr - the attribute by which rank the top values"
+    print "attr - the attribute by which rank the top values\n"
 
-def topk(k=10, sort="uploader", attr=["video_id"]):
-    map = Code("function () {"
-                "  this.{0}.forEach(function(z) {"
-                "    emit(z, 1);"
-                "  });"
-                "}".format(sort))         
-    reduce = Code("function (key, values) {"
-                   "  var total = 0;"
-                   "  for (var i = 0; i < values.length; i++) {"
-                   "    total += values[i];"
-                   "  }"
-                   "  return total;"
-                   "}")
-    result = db.videos.map_reduce(map, reduce, "myresults")
-    result.sort("value", 1)
-    
-    count = 1
-    for r in result.find():
-        print count + ". " + r[sort]
-        count += 1
-        if (count == k):
-            break
+def topk(k=10, sort="video_id", attr=["num_views"]):
+    if attr == "video_id":
+        result = db.most_uploaded.find().limit(k)
+        
+        count = 1
+        sort = "_id"
+        for r in result:
+            print str(count) + ". " + r[sort] + ", Videos uploaded = {0}".format(r["count"])
+            count += 1
+    else:
+        result = db.videos.find().sort([(attr, -1)]).limit(k);
+        count = 1
+        for r in result:
+            print str(count) + ". " + r[sort] + ", {0} = {1}".format(attr, r[attr])
+            count += 1
 
 def run(arguments):
     k = -1
@@ -72,6 +86,6 @@ def run(arguments):
     if attr == 'video_id' or sort == None:
         sort = 'uploader'
     if attr == None:
-        attr = 'video_id'
+        attr = 'num_views'
     print "Top {0} {1}'s with the most {2}s".format(k,sort,attr)
     topk(k, sort, attr)

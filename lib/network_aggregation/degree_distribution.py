@@ -12,26 +12,44 @@ client = MongoClient('mongodb://cammi:6985.bQoLX*3935@youtubeanalyzer-shard-00-0
 db = client.youtube_analyzer
 videos = db.related_videos
 
+def usage():
+    print "Usage: dd has no arguments\n"
+
 def dd():
-    print "In-Degree Distribution:"
-    # map function: given video_id x, find all documents with video_id2 = x
-    # reduce function: for each key, return count(values)
-    # reduce function #2: for each distinct degree d (key) in the previous query results, count(all documents with degree d)/count(all documents)
-    # sort final query
-    # print highest 14 degrees and 15+ = sum(rest of the degree values)
-    print "Out-Degree Distribution:" # All 20
-    # map function: given video_id x, find all documents with video_id1 = x
-    # reduce function: for each key, return count(values)
-    # reduce function #2: for each distinct degree d (key) in the previous query results, count(all documents with degree d)/count(all documents)
-    # sort final query
-    # print highest 14 degrees and 15+ = sum(rest of the degree values)
-    print "Average Degree:"
+    print "In-Degree Distribution:" 
+    result1 = db.in_degree_distribution.find().sort([("$fraction", -1)]).limit(10);
+    for r in result1:
+        print "Degree = {0}, Fraction = {1}".format(r["_id"], r["fraction"])
+    print "\nOut-Degree Distribution:"
+    result2 = db.out_degree_distribution.find().sort([("$fraction", -1)]).limit(10);
+    for r in result2:
+        print "Degree = {0}, Fraction = {1}".format(r["_id"], r["fraction"])
+    print "\nAverage Degree:"
+    result3 = db.in_degree.aggregate([
+            {
+                "$group": { "_id": "null", "average": { "$avg": "$degree" } }
+            }
+        ])
+    for r in result3:
+        print r["average"]
     # pymongo $avg operator for 'value'
     # Sort by myfield (ascending value) and return first document
-    print "Minimum Degree:"
-    #result.find_one(sort=[("value", 1)])["value"]
-    print "Maximum Degree:"
-    #result.find_one(sort=[("value", -1)])["value"]
-    
+    print "\nMinimum Degree:"
+    min1 = db.in_degree.find_one(sort=[("degree", 1)])["degree"]
+    min2 = db.out_degree.find_one(sort=[("degree", 1)])["degree"]
+    if min1 > min2:
+        print min2
+    else:
+        print min1
+    print "\nMaximum Degree:"
+    max1 = db.in_degree.find_one(sort=[("degree", -1)])["degree"]
+    max2 = db.out_degree.find_one(sort=[("degree", -1)])["degree"]
+    if max1 > max2:
+        print max2
+    else:
+        print max1
 def run(arguments):
-    pass
+    if len(arguments) > 0:
+        usage()
+        return
+    dd()

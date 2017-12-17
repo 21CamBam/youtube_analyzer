@@ -3,7 +3,6 @@ import lib.influence_analysis.pagerank as pagerank
 import lib.network_aggregation.categorized_statistics as categorized_statistics
 import lib.network_aggregation.degree_distribution as degree_distribution
 import lib.search.range_queries as range_queries
-import lib.search.recognition_patterns as recognition_patterns
 import lib.search.top_kqueries as top_kqueries
 import time
 import bson
@@ -14,7 +13,6 @@ dd     - degree distribution (no arguments)\n\
 cstat  - categorical statistics (one required argument)\n\
 topk   - top k queries (one required and two optional arguments)\n\
 rangeq - range queries (three required and one optional arguments)\n\
-sp     - subgraph pattern recognition (one required argument)\n\
 pgr    - pagerank influence analysis (no arguments)\n\
 help   - list commands (no arguments)\n"
 
@@ -33,7 +31,6 @@ commands = {
     "cstat": categorized_statistics.run,
     "topk": top_kqueries.run,
     "rangeq": range_queries.run,
-    "sp": recognition_patterns.run,
     "pgr": pagerank.run,
     "help": print_commands
 }
@@ -46,7 +43,7 @@ def main():
         elements = cmd.strip().split()
         if not any([cmd.startswith(s) for s in commands.keys()]):
             print "Invalid command. Acceptable commands are: {0}".format(", ".join(commands))
-            continu
+            continue
         start_time = time.time()
         commands[elements[0].strip()](elements[1:])
         print("--- Runtime: %s seconds ---" % (time.time() - start_time))

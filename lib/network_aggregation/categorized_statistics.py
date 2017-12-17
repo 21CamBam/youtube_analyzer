@@ -12,13 +12,25 @@ client = MongoClient('mongodb://cammi:6985.bQoLX*3935@youtubeanalyzer-shard-00-0
 db = client.youtube_analyzer
 videos = db.videos
 
-descriptive = ["uploader", "category"]
-target = ["age", "length", "views", "rate", "ratings", "comments"]
+args = {"uploader": str, "category":str, "video_age":int, "video_length":int, "num_views":int, "rate":float, "num_ratings":int, "num_comments":int}
 
-def cstat(attr, value):
-    count = 0
-    count = db.videos.find({attr: value})
-    print "Number of videos where {0} is {1}: {2}".format(attr, value, count)
-    
+def usage():
+    print "Usage: cstat field1=val1 field2=val2...\n"
+
+def cstat(doc):
+    count = db.videos.find(doc).count()
+    print "Number of videos that satisfy {0}: {1}".format(doc, count)
+
 def run(arguments):
-    pass
+    doc = {}
+    for a in arguments:
+        try:
+            key, val = a.strip().split('=')
+            if key not in args.keys():
+                usage()
+                return
+            doc[key] = args[key](val)
+        except:
+            usage()
+            return
+    cstat(doc)
